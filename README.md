@@ -1,6 +1,6 @@
 ### Some exercises when I was learning 《Introduction To Algorithms》
 
-![](https://images-na.ssl-images-amazon.com/images/I/41-1VkO%2B1lL._SX359_BO1,204,203,200_.jpg)
+![](https://prodimage.images-bn.com/pimages/9780262033848_p0_v1_s550x406.jpg)
 
 Other Reference: [summary-of-mit-introduction-to-algorithms][1]    
 
