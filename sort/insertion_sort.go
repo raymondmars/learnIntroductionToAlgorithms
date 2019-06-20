@@ -1,11 +1,11 @@
 package main
 
-//插入排序 O(n*n)
+//Insertion Sort O(n*n)
 func InsertionSort(arrs []int) []int {
-	for i:=1; i < len(arrs); i++{
+	for i := 1; i < len(arrs); i++ {
 		key := arrs[i]
 		j := i - 1
-		for ; j >=0 && arrs[j] > key ; {
+		for j >= 0 && arrs[j] > key {
 			arrs[j+1] = arrs[j]
 			j--
 		}
@@ -13,4 +13,3 @@ func InsertionSort(arrs []int) []int {
 	}
 	return arrs
 }
-
