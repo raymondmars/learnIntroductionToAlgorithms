@@ -1,7 +1,7 @@
 package main
 
 //Insertion Sort O(n*n)
-func InsertionSort(arrs []int) []int {
+func InsertionSort(arrs []int) {
 	for i := 1; i < len(arrs); i++ {
 		key := arrs[i]
 		j := i - 1
@@ -11,5 +11,4 @@ func InsertionSort(arrs []int) []int {
 		}
 		arrs[j+1] = key
 	}
-	return arrs
 }

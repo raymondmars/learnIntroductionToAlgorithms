@@ -1,41 +1,46 @@
 package main
 
-import "testing"
-import "gotest.tools/assert"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+//func Equal(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})
 
 //Test all queue features
 func TestQueue(t *testing.T) {
 	queue := &Queue{}
-	assert.Equal(t, queue.IsEmpty(), true)
+	assert.True(t, queue.IsEmpty())
 	queue.Push(1)
-	assert.Equal(t, queue.IsEmpty(), false)
+	assert.False(t, queue.IsEmpty())
 	queue.Push(2)
-	assert.Equal(t, queue.Len(), 2)
+	assert.Equal(t, 2, queue.Len())
 
-	assert.Equal(t, queue.Top(), 1)
-	assert.Equal(t, queue.Pop(), 1)
-	assert.Equal(t, queue.Top(), 2)
+	assert.Equal(t, 1, queue.Top())
+	assert.Equal(t, 1, queue.Pop())
+	assert.Equal(t, 2, queue.Top())
 
 	queue.Pop()
-	assert.Equal(t, queue.Pop(), nil)
-	assert.Equal(t, queue.Len(), 0)
+	assert.Equal(t, nil, queue.Pop())
+	assert.Equal(t, 0, queue.Len())
 }
 
 //Test all stack features
 func TestStack(t *testing.T) {
 	stack := &Stack{}
-	assert.Assert(t, stack.IsEmpty())
+	assert.True(t, stack.IsEmpty())
 	stack.Push(1)
-	assert.Assert(t, !stack.IsEmpty())
+	assert.False(t, stack.IsEmpty())
 	stack.Push(2)
-	assert.Equal(t, stack.Len(), 2)
+	assert.Equal(t, 2, stack.Len())
 
-	assert.Equal(t, stack.Top(), 2)
-	assert.Equal(t, stack.Pop(), 2)
-	assert.Equal(t, stack.Top(), 1)
+	assert.Equal(t, 2, stack.Top())
+	assert.Equal(t, 2, stack.Pop())
+	assert.Equal(t, 1, stack.Top())
 
 	stack.Pop()
-	assert.Equal(t, stack.Pop(), nil)
-	assert.Equal(t, stack.Len(), 0)
+	assert.Equal(t, nil, stack.Pop())
+	assert.Equal(t, 0, stack.Len())
 
 }

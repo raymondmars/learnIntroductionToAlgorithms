@@ -10,21 +10,19 @@ func (q *Stack) Push(item interface{}) {
 
 }
 func (q *Stack) Pop() interface{} {
-	if len(q.Items) > 0 {
-		item := q.Items[len(q.Items)-1]
-		q.Items = q.Items[0 : len(q.Items)-1]
-		return item
-	} else {
+	if len(q.Items) == 0 {
 		return nil
 	}
+	item := q.Items[len(q.Items)-1]
+	q.Items = q.Items[0 : len(q.Items)-1]
+	return item
 
 }
 func (q *Stack) Top() interface{} {
-	if len(q.Items) > 0 {
-		return q.Items[len(q.Items)-1]
-	} else {
+	if len(q.Items) == 0 {
 		return nil
 	}
+	return q.Items[len(q.Items)-1]
 }
 func (q *Stack) IsEmpty() bool {
 	return len(q.Items) == 0
