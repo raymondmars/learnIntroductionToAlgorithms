@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"sort"
 	"testing"
@@ -8,19 +9,23 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_InsertSort(t *testing.T) {
+func Test_MergeSort(t *testing.T) {
 
-	a := []int{1, 3, 4, 2, 8, 5, 6, 7, 9, 0}
+	a := []int{1, 3, 4, 2, 8, 5, 6, 7, 9, 0, 10, 18, 14}
 	b := make([]int, len(a))
 	copy(b, a)
 
 	sort.Ints(a)
-	InsertionSort(b)
+
+	MergeSort(b, 0, len(b))
 
 	assert.Equal(t, a, b)
 
+	fmt.Printf("%v", b)
+
 }
-func Benchmark_InsertSort(b *testing.B) {
+
+func Benchmark_MergeSort(b *testing.B) {
 	b.StopTimer()
 	arrs := []int{}
 	for i := 0; i < b.N; i++ {
@@ -28,5 +33,5 @@ func Benchmark_InsertSort(b *testing.B) {
 	}
 
 	b.StartTimer()
-	InsertionSort(arrs)
+	MergeSort(arrs, 0, len(arrs))
 }
