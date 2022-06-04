@@ -20,12 +20,12 @@ func TestDivideConquerXPower(t *testing.T) {
 
 func Benchmark_NormalXPower(b *testing.B) {
 	for i := 1; i < b.N; i++ {
-		normalXPower(2, i)
+		normalXPower(2, 30)
 	}
 }
 
 func Benchmark_DivideConquerXPower(b *testing.B) {
 	for i := 1; i < b.N; i++ {
-		divideConquerXPower(2, i)
+		divideConquerXPower(2, 30)
 	}
 }

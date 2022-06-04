@@ -1,5 +1,7 @@
 package divideconquer
 
+// 普通乘积法求 x^n
+// O(n)
 func normalXPower(x, n int) int {
 	total := 1
 	for i := 1; i <= n; i++ {
@@ -8,6 +10,8 @@ func normalXPower(x, n int) int {
 	return total
 }
 
+// 分治法求 x^n
+// O(lgn)
 func divideConquerXPower(x, n int) int {
 	if n == 1 {
 		return x
