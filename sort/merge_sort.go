@@ -1,4 +1,4 @@
-package main
+package sort
 
 //Chapter 2.3, merge sort, implement it by golang
 //Author: Raymond Jiang

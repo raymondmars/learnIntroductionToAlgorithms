@@ -1,4 +1,4 @@
-package main
+package sort
 
 //Chapter 2.1, insertion sort, implement it by golang
 //Author: Raymond Jiang
