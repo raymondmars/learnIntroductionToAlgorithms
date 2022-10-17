@@ -10,6 +10,7 @@ type MaxPriorityQueue interface {
 	Max() int
 	ExtractMax() int
 	IncreaseKey(index int, key int)
+	Delete(index int)
 	QueueData() []int
 }
 
@@ -49,6 +50,17 @@ func (q *maxPriorityqueue) IncreaseKey(index int, key int) {
 			parentIndex = ((index + 1) / 2) - 1
 		}
 	}
+}
+
+func (q *maxPriorityqueue) Delete(index int) {
+	tailItem := q.queue[len(q.queue)-1]
+	if q.queue[index] < tailItem {
+		q.IncreaseKey(index, tailItem)
+	} else {
+		q.queue[index] = tailItem
+		sort.MaxHeapify(q.queue, index)
+	}
+	q.queue = q.queue[:len(q.queue)-1]
 }
 
 func (q *maxPriorityqueue) QueueData() []int {

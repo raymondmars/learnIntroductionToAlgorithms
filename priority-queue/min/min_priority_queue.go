@@ -10,6 +10,7 @@ type MinPriorityQueue interface {
 	Min() int
 	ExtractMin() int
 	DecreaseKey(index int, key int)
+	Delete(index int)
 	QueueData() []int
 }
 
@@ -50,6 +51,17 @@ func (p *minPriorityqueue) DecreaseKey(index int, key int) {
 			parentIndex = ((index + 1) / 2) - 1
 		}
 	}
+}
+
+func (p *minPriorityqueue) Delete(index int) {
+	tailItem := p.queue[len(p.queue)-1]
+	if p.queue[index] > tailItem {
+		p.DecreaseKey(index, tailItem)
+	} else {
+		p.queue[index] = tailItem
+		sort.MinHeapify(p.queue, index)
+	}
+	p.queue = p.queue[:len(p.queue)-1]
 }
 
 func (p *minPriorityqueue) QueueData() []int {

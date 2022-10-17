@@ -38,3 +38,13 @@ func TestInsert(t *testing.T) {
 	// t.Log(queue.QueueData())
 	assert.Equal(t, []int{16, 14, 11, 8, 7, 10, 3, 2, 4, 1, 5, 9}, queue.QueueData())
 }
+
+func TestDelete(t *testing.T) {
+	trees := []int{4, 1, 3, 2, 16, 9, 10, 14, 8, 7, 5}
+	queue := NewMaxPriorityQueue(trees)
+	// t.Log(queue.QueueData())
+	queue.Delete(2)
+	t.Log(queue.QueueData())
+	assert.Equal(t, []int{16, 14, 9, 8, 7, 5, 3, 2, 4, 1}, queue.QueueData())
+
+}

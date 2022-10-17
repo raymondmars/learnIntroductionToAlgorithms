@@ -39,3 +39,12 @@ func TestInsert(t *testing.T) {
 	t.Log(queue.QueueData())
 	assert.Equal(t, []int{1, 2, 3, 4, 5, 6, 10, 14, 8, 7, 16, 9}, queue.QueueData())
 }
+
+func TestDelete(t *testing.T) {
+	trees := []int{4, 1, 3, 2, 16, 9, 10, 14, 8, 7, 5}
+	queue := NewMinPriorityQueue(trees)
+	// t.Log(queue.QueueData())
+	queue.Delete(2)
+
+	assert.Equal(t, []int{1, 2, 9, 4, 5, 16, 10, 14, 8, 7}, queue.QueueData())
+}
