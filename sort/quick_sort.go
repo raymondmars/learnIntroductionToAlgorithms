@@ -24,3 +24,13 @@ func Partition(list []int, p, r int) int {
 	list[i+1] = temp
 	return i + 1
 }
+
+func TailRecursiveQuickSort(list []int, p, r int) {
+	if len(list) > 0 {
+		for p < r {
+			q := Partition(list, p, r)
+			TailRecursiveQuickSort(list, p, q-1)
+			p = q + 1
+		}
+	}
+}
