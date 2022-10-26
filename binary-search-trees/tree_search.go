@@ -25,3 +25,59 @@ func IterativeSearch(treeNode *Node[int32], k int32) *Node[int32] {
 	}
 	return head
 }
+
+func Minimum(treeNode *Node[int32]) *Node[int32] {
+	for treeNode.Left != nil {
+		treeNode = treeNode.Left
+	}
+	return treeNode
+}
+
+func Maximum(treeNode *Node[int32]) *Node[int32] {
+	for treeNode.Right != nil {
+		treeNode = treeNode.Right
+	}
+	return treeNode
+}
+
+func MinimumRecursive(treeNode *Node[int32]) *Node[int32] {
+	if treeNode.Left == nil {
+		return treeNode
+	}
+	return MinimumRecursive(treeNode.Left)
+}
+
+func MaximumRecursive(treeNode *Node[int32]) *Node[int32] {
+	if treeNode.Right == nil {
+		return treeNode
+	}
+	return MaximumRecursive(treeNode.Right)
+}
+
+func TreeSuccessor(tree *Node[int32]) *Node[int32] {
+	node := tree
+	if node.Right != nil {
+		return Minimum(node.Right)
+	} else {
+		parent := node.Parent
+		for parent != nil && parent.Right == node {
+			node = parent
+			parent = node.Parent
+		}
+		return parent
+	}
+}
+
+func TreePreDecessor(tree *Node[int32]) *Node[int32] {
+	node := tree
+	if node.Left != nil {
+		return Maximum(node.Left)
+	} else {
+		parent := node.Parent
+		for parent != nil && node == parent.Left {
+			node = parent
+			parent = node.Parent
+		}
+		return parent
+	}
+}
