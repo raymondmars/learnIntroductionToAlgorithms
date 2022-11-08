@@ -54,8 +54,7 @@ func MaximumRecursive(treeNode *Node[int32]) *Node[int32] {
 	return MaximumRecursive(treeNode.Right)
 }
 
-func TreeSuccessor(tree *Node[int32]) *Node[int32] {
-	node := tree
+func TreeSuccessor(node *Node[int32]) *Node[int32] {
 	if node.Right != nil {
 		return Minimum(node.Right)
 	} else {
@@ -68,8 +67,7 @@ func TreeSuccessor(tree *Node[int32]) *Node[int32] {
 	}
 }
 
-func TreePreDecessor(tree *Node[int32]) *Node[int32] {
-	node := tree
+func TreePreDecessor(node *Node[int32]) *Node[int32] {
 	if node.Left != nil {
 		return Maximum(node.Left)
 	} else {
